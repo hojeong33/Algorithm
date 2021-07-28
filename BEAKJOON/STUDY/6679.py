@@ -11,5 +11,4 @@ for i in range(1000,10000):
     if sum_num(i,10)==sum_num(i,12)==sum_num(i,16):
         ans_list.append(i)
 
-for i in ans_list:
-    print(i)
+print(*ans_list,sep='\n')

@@ -1,3 +1,4 @@
+#블랙잭
 n,m=map(int,input().split())
 num_list=list(map(int,input().split()))
 max_sum=0
