@@ -1,16 +1,18 @@
-start,end=map(int,(input().split()))
-n_list=[]
-flag=False
-for i in range(end):
-    for j in range(i):
-        n_list.append(i)
-        if len(n_list)==end:
-            flag=True
-            break
-    if flag:
-        break
-
-     
-n_list=n_list[start-1:]
-
-print(sum(n_list))
+#영화감독 숌
+n=int(input())
+ans=''
+#666 1666 2666 3666 4666 5666 6660 6661 6662 6663 6664 6665 6666 6667 6668 6669 7666 8666 9666
+#  1    2   3   4   5     6     7    8    9    10   11  12  13   14     15   16  17   18   19 
+#10666 11666 12666 13666 14666 15666 16660
+#20666
+#30666
+#40666
+#50666
+#60666 61666 62666 63666 64666 65666 66600 66601 66602 66603 66604 ~66699 67666
+if n%19<7:
+    ans=str(n//19)+str(n%19-1)+'666'
+elif n%19>16:
+    ans=str(n//19)+str(n%10)+'666'
+else:
+    ans=str(n//19)+'666'+str(n-7)
+print(ans.lstrip('0'))
