@@ -19,5 +19,4 @@ for i in range(N):
         pre_list=pre_list[K2-1:]+pre_list[:K2-1]
 
 #출력 형식 맞추기 <1, 2, 3, 4..>        
-print('<',end='')
-print(', '.join(repr(e)for e in del_list),end='>')
+print('<'+', '.join(repr(e)for e in del_list),end='>')
