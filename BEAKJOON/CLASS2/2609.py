@@ -1,4 +1,20 @@
 #최대공약수와 최소공배수
+n1,n2=map(int,input().split())
+def max_n(n1,n2):
+    while n2>0:
+        n1,n2=n2,n1%n2
+    return n1
+def min_n(n1,n2):
+    return n1*n2//max_n(n1,n2)
+print(max_n(n1,n2))
+print(min_n(n1,n2))
+
+#math 모듈 사용하기
+# import math
+# n1,n2=map(int,input().split())
+# print(math.gcd(n1,n2))
+# print(math.lcm(n1,n2))
+
 #시간초과 
 
 # n1,n2=map(int,input().split())
@@ -21,20 +37,19 @@
 
 #시간초과
 
-n1,n2=map(int,input().split())
-n1_list=[]
-n2_list=[]
+# n1,n2=map(int,input().split())
+# n1_list=[]
+# n2_list=[]
 
-for i in range(1,n1):
-    if n1%i==0:
-        n1_list.append(i)
-for i in range(1,n2):
-    if n2%i==0:
-        n2_list.append(i)
-a=set(n1_list)&set(n2_list)
-b=set(n1_list)^set(n2_list)
-print(a)
-print(b)
+# for i in range(1,n1):
+#     if n1%i==0:
+#         n1_list.append(i)
+# for i in range(1,n2):
+#     if n2%i==0:
+#         n2_list.append(i)
+# a=set(n1_list)&set(n2_list)
+# print(max(a))
+# print(n1*n2//max(a))
 
 
 
