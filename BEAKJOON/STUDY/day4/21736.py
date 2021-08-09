@@ -1,4 +1,4 @@
-#헌내기는 친구가 필요해
+#헌내기는 친구가 필요해 # 다시풀어보기
 N,M=map(int,input().split())
 p_list=[]
 # for i in range(3):
