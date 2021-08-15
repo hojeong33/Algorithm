@@ -1,15 +1,15 @@
 #듣보잡
 N,M=map(int,input().split())
-N_list=[]
-M_list=[]
-for i in range(N):
+N_list=[] #듣도 못한 사람
+M_list=[] #보도 못한 사람
+for i in range(N): 
     N_list.append(input())
 for i in range(M):
     M_list.append(input())
 
 ans=set(N_list)&set(M_list) # set 교집합
 print(len(ans))
-print(*sorted(ans),sep="\n") #정렬된 set 출력
+print(*sorted(ans),sep="\n") #정렬된 set 출력 사전순으로 출력
 
 # 시간초과 
 

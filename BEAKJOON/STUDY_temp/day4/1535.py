@@ -1,4 +1,4 @@
-#안녕
+#안녕 -다시 풀어보기
 N=int(input())
 L_list=[int(x) for x in input().split()]
 J_list=[int(y) for y in input().split()]
