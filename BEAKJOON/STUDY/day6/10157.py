@@ -24,22 +24,24 @@ else:
         if flag:
             break
         for i in range(R):
-            num += 1
-            start[0] += dr[d]
-            start[1] += dc[d]
             if num == K:
                 flag = True
                 break
+            num += 1
+            start[0] += dr[d]
+            start[1] += dc[d]
+
         d = (d + 1) % 4
-        if flag:
-            break
+        # if flag:
+        #     break
         for i in range(C):
-            num += 1
-            start[0] += dr[d]
-            start[1] += dc[d]
             if num == K:
                 flag = True
                 break
+            num += 1
+            start[0] += dr[d]
+            start[1] += dc[d]
+
         d = (d + 1) % 4
         R -= 1
         C -= 1
