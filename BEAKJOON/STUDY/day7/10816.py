@@ -1,17 +1,25 @@
-# 숫자 카드
+# 숫자 카드2
+import collections
+from collections import Counter
 N = int(input())  # 숫자 카드 개수
 cards = list(map(int, input().split()))
 M = int(input())
 finds = map(int, input().split())
 
-my_dic = {}
-for i in cards:
-    if my_dic.get(i):  # 해당 키 값이 있으면 value 값 반환
-        my_dic[i] += 1  # 1 증가
-    else:  # 없으면 0을 반환
-        my_dic[i] = 1  # 없으면 추가
+a=collections.Counter(cards)
 for i in finds:
-    if my_dic.get(i):  # 해당 키 있으면 value 출력
-        print(my_dic[i], end=' ')
-    else:  # 없으면 0출력
-        print(0, end=' ')
+    if i in a:
+        print(a[i])
+    else:
+        print(0)
+# my_dic = {}
+# for i in cards:
+#     if my_dic.get(i):  # 해당 키 값이 있으면 value 값 반환
+#         my_dic[i] += 1  # 1 증가
+#     else:  # 없으면 0을 반환
+#         my_dic[i] = 1  # 없으면 추가
+# for i in finds:
+#     if my_dic.get(i):  # 해당 키 있으면 value 출력
+#         print(my_dic[i], end=' ')
+#     else:  # 없으면 0출력
+#         print(0, end=' ')
