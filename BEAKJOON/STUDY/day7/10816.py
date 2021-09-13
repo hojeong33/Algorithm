@@ -6,9 +6,9 @@ finds = map(int, input().split())
 
 my_dic = {}
 for i in cards:
-    if my_dic.get(i):  # 해당 키 값이 있으면
+    if my_dic.get(i):  # 해당 키 값이 있으면 value 값 반환
         my_dic[i] += 1  # 1 증가
-    else:
+    else:  # 없으면 0을 반환
         my_dic[i] = 1  # 없으면 추가
 for i in finds:
     if my_dic.get(i):  # 해당 키 있으면 value 출력

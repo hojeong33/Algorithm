@@ -3,12 +3,10 @@ import sys
 
 sys.setrecursionlimit(10 ** 9)
 
-
 def dfs(st):
     for i in tree[st]:
         if parents[i] == 0:  # 부모가 없으면
             parents[i] = st
-            print(parents)
             dfs(i)
 
 
