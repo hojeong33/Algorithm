@@ -1,7 +1,7 @@
 # 바이러스
 from collections import deque
 
-
+# [[], [2, 5], [1, 3, 5], [2], [7], [1, 2, 6], [5], [4]]
 def bfs(start):
     virus[start] = 1  # 감염 체크
     q = deque()
@@ -10,7 +10,8 @@ def bfs(start):
         top = q.popleft()
         for i in com[top]:
             if virus[i] == 0:
-                bfs(i)  # return 생략가능?
+                virus[i]=1
+                q.append(i)  # return 생략가능?
 
 
 def dfs(start):
@@ -35,7 +36,7 @@ for i in range(V):
     com[s1].append(s2)
     com[s2].append(s1)
 # q=deque()
-# bfs(1)
+bfs(1)
 # stack=[]
-dfs(1)
+# dfs(1)
 print(sum(virus) - 1)
