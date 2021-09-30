@@ -20,11 +20,11 @@ def bfs(r, c):
 
 T = int(input())
 for tc in range(T):
-    N, M, K = map(int, input().split())
+    M, N, K = map(int, input().split())
     ground = [[0] * M for _ in range(N)]
     visited = [[0] * M for _ in range(N)]
     for i in range(K):
-        r, c = map(int, input().split())
+        c, r = map(int, input().split())
         ground[r][c] = 1
 
     cnt = 0
