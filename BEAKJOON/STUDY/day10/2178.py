@@ -1,5 +1,4 @@
 # 미로 탐색
-# 에디터
 from collections import deque
 
 # 상하좌우
@@ -17,11 +16,11 @@ def bfs(r, c):
             nr = t[0] + dr[d]
             nc = t[1] + dc[d]
             if 0 <= nr < N and 0 <= nc < M and miro[nr][nc] == 1 and (visited[nr][nc] == 0):  # 범위, 값, 방문 체크
-                visited[nr][nc] = 1
                 if nr == N - 1 and nc == M - 1:  # (N,M)에 도달했으면 그때까지의 길이를 리스트에 추가
                     routes.append(t[2] + 1)
                 else:
                     q.append([nr, nc, t[2] + 1])
+                    visited[nr][nc] = 1
 
 
 # 입력

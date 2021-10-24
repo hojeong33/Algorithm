@@ -14,4 +14,5 @@ for i in range(l-1):
         elif len(words[i])==len(words[j]):
             if words[i]>words[j]:
                 words[i],words[j]=words[j],words[i]
+
 print(*words,sep='\n')

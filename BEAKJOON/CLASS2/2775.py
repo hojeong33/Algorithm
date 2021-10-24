@@ -17,3 +17,4 @@ for i in range(cnt):
     ans.append(people_count(k,n))
 
 print(*ans,sep='\n')
+
