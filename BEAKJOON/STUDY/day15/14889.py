@@ -13,9 +13,16 @@ for team in combination:
     B = 0
     for r in range(N):
         for c in range(N):
-            if r in team and c in team:
-                A += S[r][c]
-            elif not (r in team) and not (c in team):
+            check1=0
+            check2=0
+            if r in team:
+               check1=1
+            if c in team:
+                check2=1
+
+            if check1==1 and check2==1:
+                A+=S[r][c]
+            elif check1==0 and check2==0:
                 B += S[r][c]
 
     # 차이 최소값 갱신
