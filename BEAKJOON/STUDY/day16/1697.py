@@ -22,6 +22,6 @@ def bfs():
 
 
 N, K = map(int, input().split())
-visited = [0] * 100000 * 2
+visited = [0] * 100001
 ans = bfs()
 print(ans)
