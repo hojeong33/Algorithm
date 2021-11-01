@@ -1,6 +1,6 @@
 def solution(priorities, location):
     answer = 0
-    while len(priorities) != 0:
+    while 1:
         MAX = max(priorities)
         temp = priorities.pop(0)
         if temp >= MAX:  # 해당 값이 우선순위가 가장 클 때
