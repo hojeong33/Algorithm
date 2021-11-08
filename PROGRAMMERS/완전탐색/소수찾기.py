@@ -16,7 +16,7 @@ def solution(numbers):
             if temp < 2:
                 continue
             else:
-                for j in range(2, temp):
+                for j in range(2, int(temp**(1/2))+1): # 에라토스테네스의 체
                     if temp % j == 0:
                         break
                 else:
