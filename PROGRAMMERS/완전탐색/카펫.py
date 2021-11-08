@@ -6,6 +6,5 @@ def solution(brown, yellow):
             a = i
             b = j
             break
-    ans = [a, b]
-    ans.sort(reverse=True)  # 가로>=세로
+    ans = [b,a]
     return ans
