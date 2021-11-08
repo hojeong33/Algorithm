@@ -5,7 +5,6 @@ def solution(brown, yellow):
         if (i - 2) * (j - 2) == yellow:
             a = i
             b = j
-            check = True
             break
     ans = [a, b]
     ans.sort(reverse=True)  # 가로>=세로
