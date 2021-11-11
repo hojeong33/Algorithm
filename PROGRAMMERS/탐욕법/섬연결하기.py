@@ -1,29 +1,26 @@
-costs=[[0,1,1],[0,2,2],[1,2,5],[1,3,1],[2,3,8]]
-n=4
-arr=[[987654321]*n for _ in range(n)]
-for i in range(len(costs)):
-    s=costs[i][0]
-    e=costs[i][1]
-    w=costs[i][2]
-    arr[s][e]=w
-    arr[e][s]=w
+def solution(n, costs):
+    costs.sort(key=lambda x: x[2])
+    p = list(range(n))
+    ans = 0
+    pick = 0
+    idx = 0
 
-dist=[987654321]*n
-visited=[0]*n
+    def find_set(x):
+        if p[x] != x:
+            p[x] = find_set(p[x])
+        return p[x]
 
-dist[0]=0
+    def union(x, y):
+        p[find_set(y)] = find_set(x)
 
-for i in range(n-1):
-    min_idx=-1
-    min_value=987654321
+    while pick < n - 1:
+        x = costs[idx][0]
+        y = costs[idx][1]
 
-    for j in range(n):
-        if not visited[j] and dist[j]<min_value:
-            min_idx=j
-            min_value=dist[j]
+        if find_set(x) != find_set(y):
+            union(x, y)
+            pick += 1
+            ans += costs[idx][2]
 
-    visited[min_idx]=True
-    for j in range(n):
-        if not visited[j] and dist[j]>dist[min_idx]+arr[min_idx][j]:
-            dist[j]=min(arr[min_idx][j],dist[min_idx]+arr[min_idx][j])
-print(sum(dist))
+        idx += 1
+    return ans
