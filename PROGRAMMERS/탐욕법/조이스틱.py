@@ -1,13 +1,10 @@
 def solution(name):
     # 알파벳 길이만큼 체크리스트 -> 초기값 Fasle
     check = [False] * len(name)
-    # 완성된 글자 수
-    check_num = 0
-    # 이미 'A'인건 True로 바꿔주기-> 완성글자수도 같이 증가
+    # 이미 'A'인건 True로 바꿔주기
     for i in range(len(name)):
         if name[i] == 'A':
             check[i] = True
-            check_num += 1
 
     # 검사하는 알파벳 인덱스
     idx = 0
@@ -22,9 +19,9 @@ def solution(name):
             temp = abs(ord('A') - ord(name[idx]))
             cnt += min(temp, 26 - temp)
             check[idx] = True
-            check_num += 1
+
         # 탈출 조건->모두 검사
-        if check_num == len(name):
+        if sum(check) == len(name):
             break
 
         # 방향 탐색
