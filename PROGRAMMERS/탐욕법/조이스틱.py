@@ -1,23 +1,45 @@
 def solution(name):
-    check=[False]*len(name)
-    check_num=0
+    # 알파벳 길이만큼 체크리스트 -> 초기값 Fasle
+    check = [False] * len(name)
+    # 완성된 글자 수
+    check_num = 0
+    # 이미 'A'인건 True로 바꿔주기-> 완성글자수도 같이 증가
     for i in range(len(name)):
-        if name[i]=='A':
-            check[i]=True
-            check_num+=1
-    idx=0
-    cnt=0
-    d=1
+        if name[i] == 'A':
+            check[i] = True
+            check_num += 1
+
+    # 검사하는 알파벳 인덱스
+    idx = 0
+    # 조작 횟수
+    cnt = 0
+    # 방향 (1:오른쪽,-1:왼쪽)
+    d = 1
+
     while 1:
-        if check[idx]==False:
-            temp=abs(ord('A')-ord(name[idx]))
-            cnt+=min(temp,26-temp)
-            check[idx]=True
-            check_num+=1
-        if check_num==len(name):
+        # 'A'가 아니라면 X-'A'와 'Z'-X+1 중 최소값
+        if check[idx] == False:
+            temp = abs(ord('A') - ord(name[idx]))
+            cnt += min(temp, 26 - temp)
+            check[idx] = True
+            check_num += 1
+        # 탈출 조건->모두 검사
+        if check_num == len(name):
             break
-        if check[idx+d] and check[idx-d]==False:
-            d*=-1
-        idx+=d
-        cnt+=1
+
+        # 방향 탐색
+        l = 1
+        flag = False
+        while 1:
+            for i in [1, -1]:
+                t = i * l
+                if check[idx + t] == False:
+                    d = i
+                    flag = True
+                    break
+            if flag:
+                break
+            l += 1
+        idx += d
+        cnt += 1
     return cnt
