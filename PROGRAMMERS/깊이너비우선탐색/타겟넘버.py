@@ -1,29 +1,33 @@
-def dfs():
-    global answer
-    global total
-    global check
-    while numbers:
-        if check == len(numbers):
-            if total == target:
-                answer += 1
-                total=0
-        t = numbers.pop()
-        for d in [1, -1]:
-            t *= d
-            total+=t
-            check+=1
-            print(total)
-            # print(check)
-            dfs()
-            total-=t
-            check-=1
-    return answer
-
-numbers=[1,1,1,1,1]
-target=3
-check=0
-total=0
 answer=0
-print(dfs())
-
-
+def solution(numbers, target):
+    n=len(numbers) # 숫자 개수
+    def dfs(idx,temp):
+        global answer
+        if idx==n: # 개수 다 계산했으면
+            if temp==target: # 타겟 숫자랑 같은지 비교
+                answer+=1
+            return
+        else:
+            dfs(idx+1,temp+numbers[idx]) # 더하기
+            dfs(idx+1,temp-numbers[idx]) # 빼기
+    dfs(0,0)
+    return answer
+# def solution(numbers, target):
+#     global answer
+#     dfs(0,0,numbers,target)
+#     return answer
+# def dfs(idx,temp,numbers,target):
+#     global answer
+#     n = len(numbers)  # 숫자 개수
+#     if idx==n:
+#         if temp==target:
+#             answer+=1
+#         return
+#     else:
+#         dfs(idx+1,temp+numbers[idx],numbers,target)
+#         dfs(idx+1,temp-numbers[idx],numbers,target)
+#
+# answer=0
+# numbers=[1,1,1,1,1]
+# target=3
+# print(solution(numbers,target))
