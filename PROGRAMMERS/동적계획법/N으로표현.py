@@ -1,28 +1,24 @@
 def solution(N, number):
-    check=[0,[N]]
-    if N==number:
-        answer=1
-    for i in range(2,9):
-        temp=set()
-        temp.add(int(str(N)*i))
-        for j in range(len(check[i-1])):
-            temp.add((check[i-1][j]+N))
-            temp.add((check[i-1][j]-N))
-            temp.add((check[i-1][j]*N))
-            temp.add((check[i-1][j]//N))
-            temp.add((N-check[i-1][j]))
-            if check[i-1][j]!=0:
-                temp.add(N//check[i-1][j])
-        temp=list(temp)
+    check = [0, [N]]
+    for i in range(2, 9):
+        temp = set()
+        temp.add(int(str(N) * i))
+        for j in range(1, i):
+            for x in check[j]:
+                for y in check[i - j]:
+                    temp.add(x + y)
+                    temp.add(x - y)
+                    temp.add(x * y)
+                    temp.add(y - x)
+                    if y != 0:
+                        temp.add(x // y)
+                    if x != 0:
+                        temp.add(y // x)
         check.append(temp)
-    for i in range(1,len(check)):
-       if number in check[i]:
-           answer=i
-           break
+    for i in range(1, len(check)):
+        if number in check[i]:
+            answer = i
+            break
     else:
-        answer=-1
+        answer = -1
     return answer
-
-
-
-
