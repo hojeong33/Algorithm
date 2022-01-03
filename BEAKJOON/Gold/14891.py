@@ -13,9 +13,9 @@ for i in range(t):
     if n==1:
         if w[0][2]!=w[1][6]:
             turn(1,-d)
-            if w[1][2]!=w[2][6]:
+            if w[1][2-d]!=w[2][6]:
                 turn(2,d)
-                if w[2][2]!=w[3][6]:
+                if w[2][2+d]!=w[3][6]:
                     turn(3,-d)
         turn(0,d)
     if n==2:
@@ -23,13 +23,13 @@ for i in range(t):
             turn(0,-d)
         if w[1][2]!=w[2][6]:
             turn(2,-d)
-            if w[2][2]!=w[3][6]:
+            if w[2][2-d]!=w[3][6]:
                 turn(3,d)
         turn(1,d)
     if n==3:
         if w[1][2]!=w[2][6]:
             turn(1,-d)
-            if w[0][2] != w[1][6]:
+            if w[0][2] != w[1][6-d]:
                 turn(0, d)
         if w[2][2]!=w[3][6]:
             turn(3,-d)
@@ -37,9 +37,9 @@ for i in range(t):
     if n==4:
         if w[2][2]!=w[3][6]:
             turn(2,-d)
-            if w[1][2] != w[2][6]:
+            if w[1][2] != w[2][6-d]:
                 turn(1, d)
-                if w[0][2] != w[1][6]:
+                if w[0][2] != w[1][6+d]:
                     turn(0, -d)
         turn(3,d)
 ans=0
