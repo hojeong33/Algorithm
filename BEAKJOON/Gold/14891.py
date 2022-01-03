@@ -12,35 +12,35 @@ for i in range(t):
     n,d=map(int,input().split())
     if n==1:
         if w[0][2]!=w[1][6]:
-            turn(1,d)
-        if w[1][2]!=w[2][6]:
-            turn(2,d)
-        if w[2][2]!=w[3][6]:
-            turn(3,d)
+            turn(1,-d)
+            if w[1][2]!=w[2][6]:
+                turn(2,d)
+                if w[2][2]!=w[3][6]:
+                    turn(3,-d)
         turn(0,d)
     if n==2:
         if w[0][2]!=w[1][6]:
-            turn(0,d)
+            turn(0,-d)
         if w[1][2]!=w[2][6]:
-            turn(2,d)
-        if w[2][2]!=w[3][6]:
-            turn(3,d)
+            turn(2,-d)
+            if w[2][2]!=w[3][6]:
+                turn(3,d)
         turn(1,d)
     if n==3:
-        if w[0][2]!=w[1][6]:
-            turn(0,d)
         if w[1][2]!=w[2][6]:
-            turn(1,d)
+            turn(1,-d)
+            if w[0][2] != w[1][6]:
+                turn(0, d)
         if w[2][2]!=w[3][6]:
-            turn(3,d)
+            turn(3,-d)
         turn(2,d)
     if n==4:
-        if w[0][2]!=w[1][6]:
-            turn(0,d)
-        if w[1][2]!=w[2][6]:
-            turn(1,d)
         if w[2][2]!=w[3][6]:
-            turn(2,d)
+            turn(2,-d)
+            if w[1][2] != w[2][6]:
+                turn(1, d)
+                if w[0][2] != w[1][6]:
+                    turn(0, -d)
         turn(3,d)
 ans=0
 for i in range(4):
