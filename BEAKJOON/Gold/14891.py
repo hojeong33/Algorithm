@@ -4,6 +4,7 @@ def turn(s,d):
         w[s]=w[s][-1]+w[s][:7]
     else:
         w[s]=w[s][1:]+w[s][0]
+
 w=[[]for _ in range(4)]
 for i in range(4):
     w[i]=(input())
