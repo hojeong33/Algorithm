@@ -13,7 +13,6 @@ def check(cnt):
             for j in range(M):
                 if not bang2[i][j]:
                     tmp+=1
-        # print(bang2,tmp)
         return tmp
     r,c=cc[cnt][0],cc[cnt][1]
     for d in range(4):
