@@ -1,17 +1,17 @@
 #감시
-from copy import deepcopy
+
 from collections import deque
 
 dr=[-1,0,1,0]
 dc=[0,1,0,-1]
 
 def check(cnt):
-    global ans
+    global ans,bang2
     if cnt==cctv:
         tmp=0
         for i in range(N):
             for j in range(M):
-                if not bang2[i][j]:
+                if not bang[i][j] and not bang2[i][j]:
                     tmp+=1
         return tmp
     r,c=cc[cnt][0],cc[cnt][1]
@@ -38,18 +38,18 @@ def check(cnt):
         for k in directions:
             nr,nc=r+dr[k],c+dc[k]
             while 0<=nr<N and 0<=nc<M:
-                if bang2[nr][nc]==6:
+                if not bang2[nr][nc] and bang[nr][nc] != 6:
+                    bang2[nr][nc] = True
+                    q.append((nr, nc))
+                elif bang[nr][nc] == 6:
                     break
-                elif not bang2[nr][nc]:
-                    bang2[nr][nc]=1
-                    q.append((nr,nc))
                 nr+=dr[k]
                 nc+=dc[k]
         ans=min(ans,check(cnt+1))
         while q:
             pr,pc=q.popleft()
             if not bang[pr][pc]:
-                bang2[pr][pc]=0
+                bang2[pr][pc] = False
         if bang[r][c]==5:
             break
     return ans
@@ -68,8 +68,10 @@ for i in range(N):
         if 0<bang[i][j]<6:
             cctv+=1
             cc.append((i,j))
+        if bang[i][j]==0:
+            ans+=1
 ans= 987654321 #사각지대 초깃값
-bang2=deepcopy(bang)
+bang2=[[False]*M for _ in range(N)]
 check(0)
 print(ans)
 
