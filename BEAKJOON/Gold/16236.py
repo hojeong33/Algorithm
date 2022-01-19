@@ -1,4 +1,6 @@
 #아기 상어
+
+
 from collections import deque
 
 n = int(input())
