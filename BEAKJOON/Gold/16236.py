@@ -56,3 +56,14 @@ while 1:
     else:
         break
 print(ans)
+
+# 이차원 리스트 정렬 하나만 지정시 그 하나만 기준으로 정렬 됨
+a=[[1,2],[2,3],[2,1],[1,3]]
+a.sort()
+print(a)
+a.sort(key=lambda x:x[1])
+print(a)
+a.sort(key=lambda x:x[0])
+print(a)
+a.sort(key=lambda x:(x[1],x[0]))
+print(a)
