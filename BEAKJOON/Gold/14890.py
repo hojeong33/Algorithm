@@ -88,7 +88,7 @@ def check_road(r,c,d):
 
 
     ans+=1
-    print(r,c,d)
+    # print(r,c,d)
 
 
 N,L=map(int,input().split())
