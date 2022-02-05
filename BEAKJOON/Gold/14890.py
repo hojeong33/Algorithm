@@ -2,19 +2,19 @@
 def check_road(r,c,d):
     global ans
     visited=[0]*N
-    temp=0
     if d=='right':
         for i in range(N - 1):
-            if arr[r][i] == arr[r][i + 1]:
+            diff = arr[r][i] - arr[r][i + 1]
+            if diff==0:
                 pass
-            elif arr[r][i] - arr[r][i + 1] == 1:
+            elif diff == 1:
                 temp = arr[r][i + 1]
                 for j in range(L):
                     if i + 1 + j < N and not visited[i + 1 + j] and arr[r][i + 1 + j] == temp:
                         visited[i + 1 + j] = 1
                     else:
                         return
-            elif arr[r][i]-arr[r][i+1]==-1:
+            elif diff ==-1:
                 temp = arr[r][i]
                 for j in range(L):
                     if i - j >=0 and not visited[i - j] and arr[r][i - j] == temp:
@@ -26,16 +26,17 @@ def check_road(r,c,d):
 
     elif d=='down':
         for i in range(N - 1):
-            if arr[i][c] == arr[i + 1][c]:
+            diff=arr[i][c] - arr[i + 1][c]
+            if diff==0:
                 pass
-            elif arr[i][c] - arr[i + 1][c] == 1:
+            elif diff==1:
                 temp = arr[i + 1][c]
                 for j in range(L):
                     if i + 1 + j < N and not visited[i + 1 + j] and arr[i + 1 + j][c] == temp:
                         visited[i + 1 + j] = 1
                     else:
                         return
-            elif  arr[i][c] - arr[i + 1][c] ==-1:
+            elif diff ==-1:
                 temp = arr[i][c]
                 for j in range(L):
                     if i - j >=0 and not visited[i - j] and arr[i -j][c] == temp:
