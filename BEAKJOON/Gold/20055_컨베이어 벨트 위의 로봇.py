@@ -27,7 +27,7 @@ while cnt<K:
         if not A[up]:
             cnt+=1
     ans+=1
-    
+
 print(ans)
 
 
